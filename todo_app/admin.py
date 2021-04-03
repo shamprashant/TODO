@@ -4,4 +4,4 @@ from .models import Task
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_detail = ['id','comment']
+    list_display = ['id','comment']
