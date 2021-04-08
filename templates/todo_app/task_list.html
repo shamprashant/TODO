@@ -9,6 +9,13 @@
     <script src="main.js"></script>
 </head>
 <body>
+
+    <form action="{% url 'todo_app:create_task' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="task" value = "" placeholder="Enter your new task here">
+        <input type="submit" value="ADD">
+    </form>
+
     <ul>
         <!-- Iterate over object_list -->
         {% for task in task_list %}
