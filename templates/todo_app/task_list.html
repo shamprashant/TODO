@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <ul>
+        <!-- Iterate over object_list -->
+        {% for task in task_list %}
+        <!-- Display Objects -->
+        <li>
+            {{ task.comment}}
+            <form action="{% url 'todo_app:update' pk=task.id %}">
+                <input type="submit" name="update" value="UPDATE">
+            </form>
+            <form action="{% url 'todo_app:delete' pk=task.id %}">
+                <input type="submit" value = "DELETE">
+            </form>
+        </li>
+      
+        <hr/>
+        <!-- If object_list is empty  -->
+        {% empty %}
+        <li>No objects yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
